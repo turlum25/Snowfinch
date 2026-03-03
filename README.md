@@ -28,6 +28,8 @@ Not yet, but since 5.1.1 iBoot has a bug in the HFS+ driver, it can technically 
 
 # Usage:
 
+Set permissions first: `chmod +x ipad1-ios7.sh`
+
 `./ipad1-ios7.sh iPad1,1_5.1.1_9B206_Restore.ipsw iPad2,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore`
 
 Note that this restore bundle is not compressed, though modern `idevicerestore` can handle extracted IPSW's just fine.
@@ -41,6 +43,18 @@ After the custom restore bundle is created, you can use `ipwnder32` by dora2ios 
 After the restore completes, the device should be stuck in recovery mode. You can now boot it with this command.
 
 `./boot.sh`
+
+# Some of the tools used
+
+ipwnder32 - dora2ios
+
+idevicerestore, libirecovery - libimobiledevice
+
+
+
+
+
+
 
 
 
