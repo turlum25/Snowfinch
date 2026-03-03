@@ -28,7 +28,7 @@ Not yet, but since 5.1.1 iBoot has a bug in the HFS+ driver, it can technically 
 
 # Usage:
 
-Set permissions first: `chmod +x ipad1-ios7.sh`
+Set permissions first: `chmod +x *.sh`
 
 `./ipad1-ios7.sh iPad1,1_5.1.1_9B206_Restore.ipsw iPad2,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore`
 
