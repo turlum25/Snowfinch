@@ -52,7 +52,9 @@ ipwnder32 - dora2ios
 
 idevicerestore, libirecovery - libimobiledevice
 
+# Thanks to
 
+NyanSatan - DT diffing tool, and some of the diff itself
 
 
 
