@@ -26,13 +26,13 @@ Not yet, but since 5.1.1 iBoot has a bug in the HFS+ driver, it can technically 
 
 [iPad 1, 5.1.1 (9B206)](https://secure-appldnld.apple.com/iOS5.1.1/041-4292.02120427.Tkk0d/iPad1,1_5.1.1_9B206_Restore.ipsw)
 
-[iPad 2, 7.0 (11A465)](https://secure-appldnld.apple.com/iOS7/091-9464.20130918.jozAF/iPad2,1_7.0_11A465_Restore.ipsw)
+[iPhone 4, 7.0 (11A465)](https://secure-appldnld.apple.com/iOS7/091-9485.20130918.Xa98u/iPhone3,1_7.0_11A465_Restore.ipsw)
 
 # Usage:
 
 Set permissions first: `chmod +x *.sh`
 
-`./ipad1-ios7.sh iPad1,1_5.1.1_9B206_Restore.ipsw iPad2,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore`
+`./ipad1-ios7.sh iPad1,1_5.1.1_9B206_Restore.ipsw iPhone3,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore`
 
 Note that this restore bundle is not compressed, though modern `idevicerestore` can handle extracted IPSW's just fine.
 
