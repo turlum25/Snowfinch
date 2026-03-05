@@ -1,0 +1,1 @@
+This contains springboard stuff, touch drivers, and the hacktivation stuff (as device will NOT activate normally on Apple's Servers yet).
