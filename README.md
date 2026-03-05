@@ -40,7 +40,7 @@ After the custom restore bundle is created, you can use `ipwnder32` by dora2ios 
 
 `./bins/idevicerestore -e iPad1,1_7.0_11A465_Restore`
 
-After the restore completes, the device should be stuck in recovery mode. You can now boot it with this command.
+~~After the restore completes, the device should be stuck in recovery mode. You can now boot it with this command.~~
 
 `./boot.sh`
 
