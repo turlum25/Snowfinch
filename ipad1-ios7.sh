@@ -13,7 +13,6 @@ curl -L -o $SCRIPT_DIR/bins/pzb https://github.com/LukeZGD/Legacy-iOS-Kit/raw/re
 curl -L -o $SCRIPT_DIR/bins/irecovery https://github.com/NyanSatan/SundanceInH2A/raw/refs/heads/master/executables/irecovery
 curl -L -o $SCRIPT_DIR/bins/idevicerestore https://github.com/NyanSatan/SundanceInH2A/raw/refs/heads/master/executables/idevicerestore
 curl -L -o $SCRIPT_DIR/bins/hfsplus https://github.com/NyanSatan/SundanceInH2A/raw/refs/heads/master/executables/hfsplus
-curl -L -o $SCRIPT_DIR/dtre/ddt.py https://github.com/NyanSatan/SundanceInH2A/raw/refs/heads/master/dt/ddt.py
 # These are for untethering it, thanks to NyanSatan
 curl -L -o $SCRIPT_DIR/bins/rc.boot https://github.com/NyanSatan/SundanceInH2A/raw/refs/heads/master/rc_boot/rc.boot
 curl -L -o $SCRIPT_DIR/bins/exploit.dmg https://github.com/NyanSatan/SundanceInH2A/raw/refs/heads/master/exploit/exploit-k48.dmg
@@ -63,11 +62,8 @@ $SCRIPT_DIR/bins/hfsplus rootfs.raw add $SCRIPT_DIR/resources/MobileGestalt.plis
 echo "Building root filesystem"
 $SCRIPT_DIR/bins/dmg build rootfs.raw $OUTPUT_NAME/038-4291-006.dmg 
 rm -rf "rootfs.raw"
-echo "Processing DeviceTree"
-$SCRIPT_DIR/bins/xpwntool $OUTPUT_NAME/Firmware/all_flash/all_flash.k48ap.production/DeviceTree.k48ap.img3 DeviceTree.raw -iv e0a3aa63dae431e573c9827dd3636dd1 -k 50208af7c2de617854635fb4fc4eaa8cddab0e9035ea25abf81b0fa8b0b5654f
-python3.11 $SCRIPT_DIR/dtre/ddt.py apply DeviceTree.raw DeviceTree.patch $SCRIPT_DIR/dtre/hoodoo_innsbruck.diff
-$SCRIPT_DIR/bins/img3maker -f DeviceTree.patch -o $OUTPUT_NAME/Firmware/all_flash/all_flash.k48ap.production/DeviceTree.k48ap.img3 -t dtre
-rm -rf DeviceTree.raw DeviceTree.patch
+echo "Replacing DeviceTree"
+cp $SCRIPT_DIR/dtre/DeviceTree.k48ap.img3 $OUTPUT_NAME/Firmware/all_flash/all_flash.k48ap.production/DeviceTree.k48ap.img3 
 echo "Processing restore ramdisk"
 $SCRIPT_DIR/bins/xpwntool tmp/038-3373-256.dmg ramdisk.raw -iv 076220ac2c46cd54f1eff12d78f044b2 -k b2101ec5cdd1919c5b0e6dd7116f576ec38b62d9d2880418486fa9f2237e94cc
 $SCRIPT_DIR/bins/hfsplus ramdisk.raw grow 20000000
