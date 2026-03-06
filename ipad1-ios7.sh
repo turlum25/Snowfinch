@@ -49,7 +49,9 @@ echo "Extracting iOS 7 root filesystem"
 $SCRIPT_DIR/bins/dmg extract tmp/038-3447-395.dmg rootfs.raw -k 89d4dadced94577508999a1ce2a08b346328d9b25ad4e63b4220ce441cce35cf9e0a108b
 echo "Modifying iOS 7 root filesystem"
 $SCRIPT_DIR/bins/hfsplus rootfs.raw grow 2500000000
-# $SCRIPT_DIR/bins/hfsplus rootfs.raw untar $SCRIPT_DIR/resources/springboard.tar System/Library/CoreServices/SpringBoard.app/ might not be required atm
+# Add iPad 2 icon layout
+$SCRIPT_DIR/bins/hfsplus rootfs.raw rmall "System/Library/CoreServices/SpringBoard.app"
+$SCRIPT_DIR/bins/hfsplus rootfs.raw untar $SCRIPT_DIR/resources/springboard.tar 
 # for touchscreen to work
 $SCRIPT_DIR/bins/hfsplus rootfs.raw add $SCRIPT_DIR/resources/Common.mtprops usr/share/firmware/multitouch/Common.mtprops
 $SCRIPT_DIR/bins/hfsplus rootfs.raw add $SCRIPT_DIR/resources/iPad.mtprops usr/share/firmware/multitouch/iPad.mtprops
@@ -86,7 +88,6 @@ echo "Replacing kernelcache with iPhone3,1 7.0 kernelcache"
 mv tmp/kernelcache.release.n90 $OUTPUT_NAME/kernelcache.release.k48
 rm -rf "tmp"
 echo "Finished"
-
 
 
 
