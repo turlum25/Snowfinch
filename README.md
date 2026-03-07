@@ -30,7 +30,7 @@ Yes! This uses the 5.1.1 iBoot exploit to untether it.
 
 Set permissions first: `chmod +x *.sh`
 
-`./ipad1-ios7.sh iPad1,1_5.1.1_9B206_Restore.ipsw iPhone3,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore`
+`./ipad1-ios7.sh iPad1,1_5.1.1_9B206_Restore.ipsw iPad2,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore`
 
 Note that this restore bundle is not compressed, though modern `idevicerestore` can handle extracted IPSW's just fine.
 
