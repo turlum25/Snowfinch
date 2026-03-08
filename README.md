@@ -18,7 +18,7 @@ On Apple Silicon, install Rosetta 2 before proceeding.
 
 Bluetooth and Audio does not work. SpringBoard may crash sometimes though. Keyboard does not work.
 
-Baseband querying will fail on cellular iPad 1 during restore.
+Baseband querying will fail on cellular iPad 1 during restore. (should be fixed now, but it may break baseband)
 
 # Is this untethered?
 
