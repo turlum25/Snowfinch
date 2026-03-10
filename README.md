@@ -34,11 +34,9 @@ Set permissions first: `chmod +x *.sh`
 
 After the creation of the bundle, the program will automatically restore with the bundle to the iPad 1.
 
-After completion of restore, please use:
+After completion of restore, it should boot untethered. Though if it does not boot, please use:
 
 `./boot.sh`
-
-This is still broken from my perspective and I will try fixing it.
 
 # Some of the tools used
 
