@@ -10,7 +10,9 @@ Currently, this project only supports macOS 10.13 High Sierra and up in Intel pr
 
 # Known issues
 
-Bluetooth and Audio does not work. SpringBoard may crash sometimes though. Keyboard does not work.
+Bluetooth, audio, and keyboard does not work and SpringBoard may crash sometimes. 
+
+Control Center also does not work.
 
 Baseband querying may fail on cellular iPad 1 during restore. (Just patched, uncertain if it may happen)
 
