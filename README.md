@@ -6,7 +6,7 @@ This is still not a full finished project.
 
 # Support
 
-Currently, this project only supports macOS 10.13 High Sierra and up in Intel processors only and does not support Linux yet. 
+Currently, this project only supports macOS 10.13 High Sierra and up in Intel processors (you can also run this on Apple Silicon if you install Rosetta 2) and does not support Linux yet. 
 
 # Known issues
 
