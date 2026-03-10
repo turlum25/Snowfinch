@@ -30,6 +30,8 @@ Yes! This uses the 5.1.1 iBoot exploit to untether it.
 
 Set permissions first: `chmod +x *.sh`
 
+Also make sure to compile Snowfinch: `python3 compile.py`
+
 `./ipad1-ios7.sh iPad1,1_5.1.1_9B206_Restore.ipsw iPad2,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore`
 
 After the creation of the bundle, the program will automatically restore with the bundle to the iPad 1.
