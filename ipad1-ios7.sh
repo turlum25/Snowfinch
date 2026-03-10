@@ -39,6 +39,9 @@ else
     echo "dyld.tar already exists, skipping download."
 fi
 
+chmod +x $SCRIPT_DIR/restore/tools/*
+xattr -cr $SCRIPT_DIR/restore/tools/*
+
 mkdir -p $SCRIPT_DIR/bins
 curl -L -o $SCRIPT_DIR/bins/xpwntool https://github.com/LukeZGD/Legacy-iOS-Kit/raw/refs/heads/main/bin/macos/xpwntool
 curl -L -o $SCRIPT_DIR/bins/iBoot32Patcher https://github.com/LukeZGD/Legacy-iOS-Kit/raw/refs/heads/main/bin/macos/iBoot32Patcher
@@ -133,7 +136,7 @@ rm -rf "tmp"
 echo "Finished making bundle"
 
 # BY TURLUM25 - this moves bundle and starts 
-mv $SCRIPT_DIR/iPad1,1_7.0_11A465_Restore $SCRIPT_DIR/restore
+mv $OUTPUT_NAME $SCRIPT_DIR/restore/iPad1,1_7.0_11A465_Restore
 echo "Bundle can be found in $SCRIPT_DIR/restore."
 echo "Waiting for 3 seconds before starting restore..."
 sleep 3
