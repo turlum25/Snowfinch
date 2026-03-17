@@ -62,17 +62,31 @@ echo "iPad 1 haxx"
 echo "Codenamed Snowfinch by Turlum25 - Version 0.3.1-fork"
 echo "--------------------------------------------------" 
 
-if [ "$#" -ne 3 ]; then
+if [[ "$#" -lt 3 || "$#" -gt 4 ]]; then
     echo "Usage: $0 [base ipsw] [target ipsw] [output name]"
     echo ""
     echo "Example:"
-    echo "$0 iPad1,1_5.1.1_9B206_Restore.ipsw iPad2,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore"
+    echo "$0 iPad1,1_5.1.1_9B206_Restore.ipsw iPad2,1_7.0_11A465_Restore.ipsw iPad1,1_7.0_11A465_Restore [--hacktivate]"
     exit 1
 fi
 
 BASE_IPSW="$1"
 TARGET_IPSW="$2"
 OUTPUT_NAME="$3"
+
+HACKTIVATE=0
+
+if [[ $# -eq 4 ]]; then
+    if [[ "$4" == "--hacktivate" ]]; then
+        echo "This will automatically hacktivate the restore"
+        echo "It is only recommended for cellular models or if normal activation fails on Wi-Fi models."
+        read -p "Press enter to continue with hacktivating the restore"
+        HACKTIVATE=1
+    else
+        echo "Error: Unknown option '$4'"
+        exit 1
+    fi
+fi
 
 echo "Extracting iOS 5 IPSW"
 unzip $BASE_IPSW -d $OUTPUT_NAME
@@ -101,8 +115,12 @@ echo "Adding Wi-Fi drivers"
 $SCRIPT_DIR/bins/hfsplus rootfs.raw mkdir usr/share/firmware/wifi/4329c0
 $SCRIPT_DIR/bins/hfsplus rootfs.raw add $SCRIPT_DIR/resources/duo.bin usr/share/firmware/wifi/4329c0/uno.bin
 $SCRIPT_DIR/bins/hfsplus rootfs.raw add $SCRIPT_DIR/resources/duo.txt usr/share/firmware/wifi/4329c0/uno.txt
-echo "Adding hacktivation"
-$SCRIPT_DIR/bins/hfsplus rootfs.raw add $SCRIPT_DIR/resources/MobileGestalt.plist private/var/mobile/Library/Caches/com.apple.MobileGestalt.plist
+if [[ $HACKTIVATE == 1 ]]; then
+    echo "Adding hacktivation"
+    $SCRIPT_DIR/bins/hfsplus rootfs.raw add $SCRIPT_DIR/resources/MobileGestalt.plist private/var/mobile/Library/Caches/com.apple.MobileGestalt.plist
+else
+    echo "Hacktivation disabled, skipping hacktivation"
+fi
 echo "Building root filesystem"
 $SCRIPT_DIR/bins/dmg build rootfs.raw $OUTPUT_NAME/038-4291-006.dmg 
 rm -rf "rootfs.raw"
