@@ -1,4 +1,4 @@
-# ios7-ipad1
+# Snowfinch
 
 A script that makes a restore bundle and installs iOS 7.0 on iPad 1 and iPod touch 4
 
